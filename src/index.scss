@@ -9,7 +9,6 @@
 :root {
   font-family: Epilogue, Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 24px;
   font-weight: 500;
 
   font-synthesis: none;
@@ -17,4 +16,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  background-color: hsl(0, 0%, 98%);
 }
