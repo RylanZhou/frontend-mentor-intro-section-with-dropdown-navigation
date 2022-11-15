@@ -81,7 +81,7 @@
 }
 
 .mask {
-  position: absolute;
+  position: fixed;
   z-index: 99;
   visibility: hidden;
   inset: 0;
@@ -96,7 +96,7 @@
 }
 
 .drawer {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 0;
   right: -100%;

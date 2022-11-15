@@ -3,7 +3,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  min-height: var(--height);
+  height: var(--height);
   max-width: 1440px;
   min-width: 350px;
   width: 100%;
