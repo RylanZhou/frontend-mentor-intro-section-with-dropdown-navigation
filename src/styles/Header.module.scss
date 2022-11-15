@@ -20,9 +20,9 @@
       margin-left: 2rem;
       list-style: none;
 
-      li {
-        font-size: 0.8rem;
+      & > li {
         margin: 0 1rem;
+        font-size: 0.8rem;
         cursor: pointer;
         transition: color 0.2s;
 
@@ -31,11 +31,12 @@
         }
 
         img {
-          transform: rotate(180deg);
+          transform: rotate(0);
           vertical-align: middle;
+          transition: transform 0.2s;
 
-          img.active {
-            transform: rotate(0);
+          &.active {
+            transform: rotate(180deg);
           }
         }
       }
@@ -74,6 +75,7 @@
       position: relative;
       width: 36px;
       height: 55%;
+      cursor: pointer;
     }
   }
 }
@@ -111,6 +113,10 @@
   .top {
     margin-bottom: 2rem;
     text-align: right;
+
+    img {
+      cursor: pointer;
+    }
   }
 
   .nav-items-mobile {
@@ -153,6 +159,12 @@
       border: none;
       color: $gray;
       cursor: pointer;
+      transition: color 0.2s, border 0.2s;
+
+      &:hover {
+        color: $black;
+        border-color: $black;
+      }
     }
 
     .register {
@@ -219,5 +231,28 @@
   .drawer,
   .mask {
     display: none;
+  }
+
+  .submenu {
+    position: absolute;
+    z-index: 98;
+    top: 4rem;
+    gap: 1rem;
+    padding: 0;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+    background-color: $white;
+
+    li {
+      margin-left: 1.4rem;
+      margin-right: 1.4rem;
+
+      &:first-child {
+        margin-top: 1rem;
+      }
+      &:last-child {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }

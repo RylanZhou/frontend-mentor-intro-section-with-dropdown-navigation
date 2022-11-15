@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from './Header';
 
@@ -10,6 +10,15 @@ import Meet from './assets/client-meet.svg';
 import styles from './styles/styles.module.scss';
 
 function App() {
+  useEffect(() => {
+    const resize = () =>
+      document.documentElement.style.setProperty('--height', window.innerHeight + 'px');
+    resize();
+
+    window.addEventListener('resize', resize);
+    return () => window.removeEventListener('resize', resize);
+  }, []);
+
   return (
     <div className={styles.App}>
       <Header />

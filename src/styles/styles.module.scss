@@ -3,7 +3,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: var(--height);
   max-width: 1440px;
   min-width: 350px;
   width: 100%;
@@ -59,12 +59,19 @@
           margin-top: 1.4rem;
           padding: 1rem 1.4rem;
           outline: none;
-          border: none;
+          border: 1px solid $black;
           border-radius: 1rem;
           font-size: 1rem;
           font-weight: bold;
           background-color: $black;
           color: $white;
+          cursor: pointer;
+          transition: background-color 0.2s, color 0.2s;
+
+          &:hover {
+            color: $black;
+            background-color: $white;
+          }
         }
 
         .companies {

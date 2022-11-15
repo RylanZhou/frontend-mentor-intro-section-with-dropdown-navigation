@@ -11,9 +11,9 @@ import Logo from './assets/logo.svg';
 
 import styles from './styles/Header.module.scss';
 
-function FeatureSubmenu({ active }: { active: boolean }) {
+function FeatureSubmenu({ active, style }: { active: boolean; style?: React.CSSProperties }) {
   return (
-    <ul className={`${styles.submenu} ${active ? styles.active : ''}`}>
+    <ul className={`${styles.submenu} ${active ? styles.active : ''}`} style={style}>
       <li>
         <img src={Todo} alt="icon-todo" /> Todo List
       </li>
@@ -30,9 +30,9 @@ function FeatureSubmenu({ active }: { active: boolean }) {
   );
 }
 
-function CompanySubmenu({ active }: { active: boolean }) {
+function CompanySubmenu({ active, style }: { active: boolean; style?: React.CSSProperties }) {
   return (
-    <ul className={`${styles.submenu} ${active ? styles.active : ''}`}>
+    <ul className={`${styles.submenu} ${active ? styles.active : ''}`} style={style}>
       <li>History</li>
       <li>Our Team</li>
       <li>Blog</li>
@@ -51,11 +51,29 @@ export default function Header() {
         <img className={styles.logo} src={Logo} alt="logo" />
         <nav>
           <ul className={styles['nav-items']}>
-            <li>
-              Features <img src={ArrowDown} alt="arrow-down" />
+            <li
+              onMouseEnter={() => setFeatureSubMenuActive(true)}
+              onMouseLeave={() => setFeatureSubMenuActive(false)}
+            >
+              Features{' '}
+              <img
+                className={`${featureSubMenuActive ? styles.active : ''}`}
+                src={ArrowDown}
+                alt="arrow-down"
+              />
+              <FeatureSubmenu active={featureSubMenuActive} style={{ left: '5rem' }} />
             </li>
-            <li>
-              Company <img src={ArrowDown} alt="arrow-down" />
+            <li
+              onMouseEnter={() => setCompanySubMenuActive(true)}
+              onMouseLeave={() => setCompanySubMenuActive(false)}
+            >
+              Company{' '}
+              <img
+                className={`${companySubMenuActive ? styles.active : ''}`}
+                src={ArrowDown}
+                alt="arrow-down"
+              />
+              <CompanySubmenu active={companySubMenuActive} style={{ left: '16rem' }} />
             </li>
             <li>Careers</li>
             <li>About</li>
